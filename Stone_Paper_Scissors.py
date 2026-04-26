@@ -36,23 +36,29 @@ def check_win(player, computer):
 def main():
     l = ['Stone', 'Paper', 'Scissors']
     while True:
-        n = int(input("Press 1 to play and 2 to exit: "))
-        if n == 1:
-            player = input('Enter your choice (Stone, Paper, Scissors): ').capitalize()
-            if player not in l:
-                print('Invalid choice. Please try again.')
-                continue
-            computer = generate()
-            print(f'Computer chose: {computer}')
-            result = check_win(player, computer)
-            print(result)
-        elif n == 2:
-            print('See you soon!!!!')
-            print('Your score: ', score_player)
-            print('Computer score: ', score_computer)
-            break
+        n = input("Press 1 to play and 2 to exit: ")
+        if n.isdigit():
+            n = int(n)
+            if n == 1:
+                player = input('Enter your choice (Stone, Paper, Scissors): ').capitalize()
+                if player not in l:
+                    print('Invalid choice. Please try again.')
+                    continue
+                computer = generate()
+                print(f'Computer chose: {computer}')
+                result = check_win(player, computer)
+                print(result)
+            elif n == 2:
+                print('Thanks for playing!, Hope you had fun playing the game.')
+                print('Your score: ', score_player)
+                print('Computer score: ', score_computer)
+                print('See you soon!!!!')
+                break
+            else:
+                print('Invalid choice.')
+        
         else:
-            print('Invalid choice.')
+            print('Invalid input. Please enter a number.')
 
 print('Welcome to the Stone, Paper, Scissors Game!')
 main()
